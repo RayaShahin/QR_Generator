@@ -21,3 +21,5 @@ def generate_qr_code(data, file_name):
         back_color = "white"
     )
 
+    # save QR code image
+    qr_image.save(f"{file_name}.png")
