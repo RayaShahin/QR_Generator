@@ -23,3 +23,9 @@ def generate_qr_code(data, file_name):
 
     # save QR code image
     qr_image.save(f"{file_name}.png")
+
+data = input("Enter URL for the QR code: ")
+file_name = input("Enter file name to save: ")
+
+generate_qr_code(data, file_name)
+print(f"QR code generated and saved as {file_name}")
