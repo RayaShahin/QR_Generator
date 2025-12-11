@@ -14,3 +14,10 @@ def generate_qr_code(data, file_name):
     # add QR code data
     qr.add_data(data)
     qr.make(fit=True) # find the best size for the data
+
+    # create image from the QR code instance
+    qr_image = qr.make_image(
+        fill_color = "black",
+        back_color = "white"
+    )
+
