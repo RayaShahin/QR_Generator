@@ -12,9 +12,12 @@ def generate_qr_code(data, file_name, box_size=12, border=4):
     if not file_name or not file_name.strip():
         raise ValueError("File name cannot be empty.")
     
-
-    
-        
+    # add QR code instance 
+    qr = qrcode.QRCode(
+        box_size=box_size,
+        border=border,
+        error_correction=ERROR_CORRECT_H # controls the error correction used for the QR code
+    ) 
 
     # add QR code data
     qr.add_data(data)
