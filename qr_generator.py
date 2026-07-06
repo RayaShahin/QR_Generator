@@ -4,15 +4,17 @@ import sys
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
 
-def generate_qr_code(data, file_name):
+def generate_qr_code(data, file_name, box_size=12, border=4):
     
-    # add QR code instance
-    qr = qrcode.QRCode(
-        version = 4, # size of the QR code
-        box_size = 12,
-        border = 4, 
-        error_correction=ERROR_CORRECT_H # controls the error correction used in the QR code
-    )
+    # error handling for empty data or file name
+    if not data or not data.strip():
+        raise ValueError("Data for QR code cannot be empty.")
+    if not file_name or not file_name.strip():
+        raise ValueError("File name cannot be empty.")
+    
+
+    
+        
 
     # add QR code data
     qr.add_data(data)
