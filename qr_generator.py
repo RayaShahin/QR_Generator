@@ -1,5 +1,6 @@
 import argparse
 import sys
+import os
 
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
@@ -30,7 +31,11 @@ def generate_qr_code(data, file_name, box_size=12, border=4):
     )
 
     # save QR code image
-    qr_image.save(f"{file_name}.png")
+    os.makedirs("qr_codes", exist_ok=True)
+    output_path = os.path.join("qr_codes", f"{file_name}.png")
+    qr_image.save(output_path)
+
+    return output_path
 
 data = input("Enter URL for the QR code: ")
 file_name = input("Enter file name to save: ")
